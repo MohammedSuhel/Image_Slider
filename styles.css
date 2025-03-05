@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    perspective: 1000px;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 60%;
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+    transform: scale(0.8) rotateY(-30deg);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+}
+
+.slide img {
+    width: 100%;
+    height: 700px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images fill the area without distortion */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Thumbnail Navigation */
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.thumbnails img {
+    width: 50px;
+    height: 50px; /* Fixed size for thumbnails */
+    object-fit: cover;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.thumbnails img:hover {
+    opacity: 1;
+}
+
+.thumbnails img.active {
+    border: 2px solid white;
+    opacity: 1;
+}
